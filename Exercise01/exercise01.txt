@@ -1,0 +1,4 @@
+Exercise 1: pragma omp barrier - IT24103439
+
+How it works:
+#pragma omp barrier acts as an explicit synchronization point for all threads in the parallel team. When threads enter the parallel region, each thread executes its first print statement and then waits at the barrier. No thread can proceed to print "Outside Barrier" until every single thread in the team has arrived at the barrier. Once all threads reach this point, they are released simultaneously to continue executing the rest of the code.
