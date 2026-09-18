@@ -1,1 +1,4 @@
+Exercise 3: pragma omp master
 
+How it works:
+#pragma omp master specifies that the enclosed structured block must be executed exclusively by the master thread (thread 0), while all other threads in the team bypass it. Unlike the single directive, there is no implicit barrier at the end of the master block. All other threads in the team will not wait for thread 0 to finish and will immediately continue executing the subsequent statements.
