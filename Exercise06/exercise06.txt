@@ -1,0 +1,4 @@
+Exercise 6: Strip Mining Array Multiplication - IT24103439
+
+How it works:
+Strip mining partitions a large loop into smaller blocks or "strips" (here, STRIP_SIZE = 64) to exploit both multi-core thread parallelism and SIMD vectorization. The outer loop steps across chunks of 64 elements and is distributed among threads using #pragma omp parallel for schedule(static). The inner loop iterates across individual elements within each chunk and is vectorized across hardware SIMD registers using #pragma omp simd. This two-level approach maximizes CPU cache locality while leveraging vector hardware execution units.
