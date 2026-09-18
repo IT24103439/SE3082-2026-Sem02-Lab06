@@ -1,1 +1,6 @@
+Exercise 4: Loop Collapse - IT24103439
 
+How it works:
+Without the collapse clause, OpenMP only parallelizes the outermost loop (r = 1 to 5). Each thread that receives an iteration executes the entire inner loop (k = 1 to 10) sequentially. Because there are only 5 outer iterations, only threads 0 through 4 receive work, leaving threads 5, 6, and 7 completely idle.
+
+With #pragma omp parallel for collapse(2), the compiler combines both loops into a single flattened iteration space of 50 iterations (5 x 10). These iterations are distributed evenly across all 8 available threads. This eliminates idle threads, distributes individual (r, k) pairs across the team, and achieves significantly better load balancing.
