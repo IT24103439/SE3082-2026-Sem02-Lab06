@@ -1,1 +1,4 @@
+Exercise 2: pragma omp single - IT24103439
 
+How it works:
+#pragma omp single specifies that the enclosed structured block must be executed by only one available thread from the team, rather than all threads. The first thread to reach the block typically executes it. Furthermore, there is an implicit barrier at the end of the single directive block. All other threads in the team will wait at the end of this block until the executing thread has finished, after which all threads continue to execute the subsequent statements together.
