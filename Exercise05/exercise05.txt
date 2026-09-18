@@ -1,1 +1,4 @@
+Exercise 5: pragma omp task and taskwait - IT24103439
 
+How it works:
+#pragma omp task defines an explicit, deferred unit of work that can be scheduled and executed asynchronously by any available thread in the parallel team. In this program, the initial call is launched by one thread inside a single region, after which each recursive branch spawns independent tasks for fib(n-1) and fib(n-2). The #pragma omp taskwait directive acts as an explicit barrier for child tasks, forcing the current task to pause and wait until both spawned sub-tasks complete before summing their results. To prevent excessive task management overhead, calls below a cutoff threshold (n < 20) execute sequentially.
